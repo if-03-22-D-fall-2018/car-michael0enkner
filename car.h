@@ -11,28 +11,32 @@
 * ----------------------------------------------------------
 */
 #ifndef ___CAR_H
-#define ___CAR_H
+	#define ___CAR_H
+	#define MAX_CARS 6
+	typedef struct CarImplementation* Car;
+	enum CarType
+	{
+	JEEP,AIXAM,FIAT_MULTIPLA
+	};
+	enum Color
+	{
+	RED,GREEN,BLUE,ORANGE,SILVER,BLACK
+	};
+	Car get_car(CarType type);
 
-typedef struct Carimplementation* Car;
-enum CarType {AIXAM,FIAT_MULTIPLA,JEEP};
-enum Color {RED,GREEN,BLUE,ORANGE,SILVER,BLACK};
+	CarType get_type(Car car);
 
-Car get_car(enum CarType cartype);
+	Color get_color(Car car);
 
-enum CarType get_type(Car car);
+	double get_fill_level(Car car);
 
-enum Color get_color(Car car);
+	double get_acceleration_rate(Car car);
 
-void init();
+	int get_speed(Car car);
+	void set_acceleration_rate(Car car, double rate);
 
-double get_fill_level(Car car);
+	void accelerate(Car car);
 
-double get_acceleration_rate(Car car);
+	void init();
 
-void set_acceleration_rate(Car car, double acceleration);
-
-void accelerate(Car car);
-
-int get_speed(Car car);
-
-#endif
+	#endif
